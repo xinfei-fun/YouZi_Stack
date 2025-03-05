@@ -94,6 +94,12 @@ export default defineConfig({
     editLink: {
       pattern: 'https://github.com/1012039590/YouZi_Stack/edit/main/src/:path', // 改成自己的仓库
       text: '在GitHub编辑本页'
-    }
+    },
+
+    //自定义上下页名 //
+    docFooter: { 
+      prev: '上一篇', 
+      next: '下一篇', 
+    }, 
   }
 })
