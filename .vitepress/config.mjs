@@ -88,6 +88,12 @@ export default defineConfig({
         dateStyle: 'full',
         timeStyle: 'medium'
       }
+    },
+
+    //编辑本页 //
+    editLink: {
+      pattern: 'https://github.com/1012039590/YouZi_Stack/edit/main/src/:path', // 改成自己的仓库
+      text: '在GitHub编辑本页'
     }
   }
 })
