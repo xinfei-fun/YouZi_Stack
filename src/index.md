@@ -6,6 +6,9 @@ hero:
   name: "柚子成长站"
   text: "Front-end learning"
   tagline: 汇聚点滴，有所收获
+  # image:
+  #   src: /assets/1.png
+  #   alt: YouZi_Stack
   actions:
     - theme: brand
       text: 开始阅读 ->
