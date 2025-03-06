@@ -1,0 +1,267 @@
+@import url('./partstyle/customblock.css');
+
+/* 最大的标题 改渐变色 */
+.VPDoc h1 {
+    background: -webkit-linear-gradient(10deg, #bd34fe 5%, #e43498 15%);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+/* 引用 改样式 */
+.vp-doc blockquote {
+    border-radius: 10px;
+    padding: 18px 20px 20px 15px;
+    position: relative;
+    background-color: var(--vp-c-gray-soft);
+    border-left: 6px solid var(--vp-c-green-2);
+}
+
+/* 顶部栏  滚动 毛玻璃效果 */
+:root {
+
+    /* 首页下滑后导航透明 */
+    .VPNavBar:not(.has-sidebar):not(.home.top) {
+        background-color: rgba(255, 255, 255, 0);
+        backdrop-filter: blur(10px);
+    }
+
+    /* 搜索框透明 */
+    .DocSearch-Button {
+        background-color: rgba(255, 255, 255, 0);
+        backdrop-filter: blur(10px);
+    }
+
+    /* Feature透明 */
+    .VPFeature {
+        border: none;
+        box-shadow: 0 10px 30px 0 rgb(0 0 0 / 15%);
+        background-color: transparent;
+    }
+
+    /* 文档页侧边栏顶部透明 */
+    .curtain {
+        background-color: rgba(255, 255, 255, 0);
+        backdrop-filter: blur(10px);
+    }
+
+    @media (min-width: 960px) {
+
+        /* 文档页导航中间透明 */
+        .VPNavBar:not(.home.top) .content-body {
+            background-color: rgba(255, 255, 255, 0);
+            backdrop-filter: blur(10px);
+        }
+    }
+
+    /* 移动端大纲栏透明 */
+    .VPLocalNav {
+        background-color: rgba(255, 255, 255, 0);
+        backdrop-filter: blur(10px);
+    }
+
+}
+
+/* 给一段文字加上记号笔效果 */
+.marker-evy {
+    white-space: nowrap;
+    position: relative;
+}
+
+.marker-evy:after {
+    content: '';
+    position: absolute;
+    z-index: -1;
+    top: 66%;
+    left: 0em;
+    right: 0em;
+    bottom: 0;
+    transition: top 200ms cubic-bezier(0, 0.8, 0.13, 1);
+    background-color: rgba(79, 192, 141, 0.5);
+}
+
+.marker-evy:hover:after {
+    top: 0%;
+}
+
+/* 代码块效果 */
+
+/* 代码块：增加留空边距 增加阴影 */
+.vp-doc div[class*=language-] {
+    box-shadow: 0 10px 30px 0 rgb(0 0 0 / 40%);
+    padding-top: 20px;
+}
+
+/* 代码块：添加macOS风格的小圆点 */
+.vp-doc div[class*=language-]::before {
+    content: "";
+    display: block;
+    position: absolute;
+    top: 12px;
+    left: 12px;
+    width: 12px;
+    height: 12px;
+    background-color: #ff5f56;
+    border-radius: 50%;
+    box-shadow: 20px 0 0 #ffbd2e, 40px 0 0 #27c93f;
+    z-index: 1;
+}
+
+/* 代码块：下移行号 隐藏右侧竖线 */
+.vp-doc .line-numbers-wrapper {
+    padding-top: 40px;
+    border-right: none;
+}
+
+/* 代码块：重建行号右侧竖线 */
+.vp-doc .line-numbers-wrapper::after {
+    content: "";
+    position: absolute;
+    top: 40px;
+    right: 0;
+    border-right: 1px solid var(--vp-code-block-divider-color);
+    height: calc(100% - 60px);
+}
+
+.vp-doc div[class*='language-'].line-numbers-mode {
+    margin-bottom: 20px;
+}
+
+/* 代码组效果 */
+
+/* 代码组：tab间距 */
+.vp-code-group .tabs {
+    padding-top: 20px;
+}
+
+/* 代码组：添加样式及阴影 */
+.vp-code-group {
+    color: var(--vp-c-black-soft);
+    border-radius: 8px;
+    box-shadow: 0 10px 30px 0 rgb(0 0 0 / 40%);
+}
+
+/* 代码组：添加macOS风格的小圆点 */
+.vp-code-group .tabs::before {
+    content: ' ';
+    position: absolute;
+    top: 12px;
+    left: 12px;
+    height: 12px;
+    width: 12px;
+    background: #fc625d;
+    border-radius: 50%;
+    box-shadow: 20px 0 #fdbc40, 40px 0 #35cd4b;
+}
+
+/* 代码组：修正倒角、阴影、边距 */
+.vp-code-group div[class*="language-"].vp-adaptive-theme.line-numbers-mode {
+    border-radius: 8px;
+    box-shadow: none;
+    padding-top: 0px;
+}
+
+/* 代码组：隐藏小圆点 */
+.vp-code-group div[class*="language-"].vp-adaptive-theme.line-numbers-mode::before {
+    display: none;
+}
+
+/* 代码组：修正行号位置 */
+.vp-code-group .line-numbers-mode .line-numbers-wrapper {
+    padding-top: 20px;
+}
+
+/* 代码组：修正行号右侧竖线位置 */
+.vp-code-group .line-numbers-mode .line-numbers-wrapper::after {
+    top: 24px;
+    height: calc(100% - 45px);
+}
+
+/* 代码组（无行号）：修正倒角、阴影、边距 */
+.vp-code-group div[class*="language-"].vp-adaptive-theme {
+    border-radius: 8px;
+    box-shadow: none;
+    padding-top: 0px;
+}
+
+/* 代码组（无行号）：隐藏小圆点 */
+.vp-code-group div[class*="language-"].vp-adaptive-theme::before {
+    display: none;
+}
+
+/* 代码块标题 */
+/* .vitepress/theme/style/vp-code-title.css */
+
+/* 整体容器样式（带阴影和圆角） */
+.vp-code-block-title {
+    background-color: var(--vp-code-block-bg);
+    margin-bottom: 20px;
+    border-radius: 8px;
+    box-shadow: 0 10px 30px 0 rgba(0, 0, 0, 0.4);
+    /* 添加阴影 */
+    overflow: hidden;
+    position: relative;
+    /* 确保小圆点定位 */
+}
+
+/* Mac 风格的小圆点，放在容器顶部 */
+.vp-code-block-title::before {
+    content: '';
+    position: absolute;
+    top: 12px;
+    /* 圆点距离容器顶部的距离 */
+    left: 12px;
+    width: 12px;
+    height: 12px;
+    background-color: #fc625d;
+    /* 红色圆点 */
+    border-radius: 50%;
+    box-shadow: 20px 0 #fdbc40, 40px 0 #35cd4b;
+    /* 黄色和绿色圆点 */
+    z-index: 1;
+}
+
+/* 标题栏样式 */
+.vp-code-block-title .vp-code-block-title-bar {
+    color: var(--vp-c-text-1);
+    font-size: 14px;
+    font-weight: bold;
+}
+
+/* 代码块标题：修正倒角、阴影、边距 */
+.vp-code-block-title div[class*="language-"].vp-adaptive-theme.line-numbers-mode {
+    border-radius: 8px;
+    box-shadow: none;
+    padding-top: 0px;
+    margin-bottom: 0px;
+}
+
+/* 代码块标题：隐藏小圆点 */
+.vp-code-block-title div[class*="language-"].vp-adaptive-theme.line-numbers-mode::before {
+    display: none;
+}
+
+/* 代码块标题：修正行号位置 */
+.vp-code-block-title .line-numbers-mode .line-numbers-wrapper {
+    padding-top: 20px;
+}
+
+/* 代码块标题：修正行号右侧竖线位置 */
+.vp-code-block-title .line-numbers-mode .line-numbers-wrapper::after {
+    top: 20px;
+    height: calc(100% - 40px);
+}
+
+/* 代码块标题（无行号）：修正倒角、阴影、边距 */
+.vp-code-block-title div[class*="language-"].vp-adaptive-theme {
+    border-radius: 8px;
+    box-shadow: none;
+    padding-top: 0px;
+}
+
+/* 代码块标题（无行号）：隐藏小圆点 */
+.vp-code-block-title div[class*="language-"].vp-adaptive-theme::before {
+    display: none;
+}
+
+/* 自定义容器 */
