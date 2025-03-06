@@ -1,6 +1,7 @@
 import { defineConfig } from 'vitepress'
 import sidebarconfig from './sidebar.mjs'
 import navconfig from './nav.mjs'
+import { groupIconMdPlugin, groupIconVitePlugin } from 'vitepress-plugin-group-icons'
 
 // https://vitepress.dev/reference/site-config
 export default defineConfig({
@@ -14,14 +15,20 @@ export default defineConfig({
   },
   srcDir: './src',
   vite: {
-    publicDir: '../public'  // 相对路径，从 srcDir 向上回退   
+    publicDir: '../public', // 相对路径，从 srcDir 向上回退   
+    plugins: [
+      groupIconVitePlugin() //代码组图标
+    ],
   },
   head: [['link', { rel: 'icon', href: '/favicon.ico' }]],
   markdown: {
     lineNumbers: true,
     image: {
       lazyLoading: true
-    }
+    },
+    config(md) {
+      md.use(groupIconMdPlugin) //代码组图标
+    },
   },
   themeConfig: {
     // https://vitepress.dev/reference/default-theme-config
@@ -69,7 +76,7 @@ export default defineConfig({
         // You can include a custom label for accessibility too (optional but recommended):
         ariaLabel: 'wechat'
       },
-      { icon: 'github', link: 'https://github.com/1012039590/YouZi_Stack' }
+      { icon: 'github', link: 'https://github.com/xinfei-fun/YouZi_Stack' }
     ],
 
     footer: {
@@ -92,14 +99,14 @@ export default defineConfig({
 
     //编辑本页 //
     editLink: {
-      pattern: 'https://github.com/1012039590/YouZi_Stack/edit/main/src/:path', // 改成自己的仓库
+      pattern: 'https://github.com/xinfei-fun/YouZi_Stack/edit/main/src/:path', // 改成自己的仓库
       text: '在GitHub编辑本页'
     },
 
     //自定义上下页名 //
-    docFooter: { 
-      prev: '上一篇', 
-      next: '下一篇', 
-    }, 
+    docFooter: {
+      prev: '上一篇',
+      next: '下一篇',
+    },
   }
 })

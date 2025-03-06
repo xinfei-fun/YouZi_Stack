@@ -2,7 +2,9 @@
 import { h } from 'vue'
 import DefaultTheme from 'vitepress/theme'
 import './style.css'
+import './custom.css'
 import googleAnalytics from 'vitepress-plugin-google-analytics'
+import 'virtual:group-icons.css' 
 
 /** @type {import('vitepress').Theme} */
 export default {
