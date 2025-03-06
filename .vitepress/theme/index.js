@@ -12,12 +12,14 @@ import confetti from './globalcomponents/confetti.vue'
 import MouseClick from './globalcomponents/MouseClick.vue'
 import MouseFollower from './globalcomponents/MouseFollower.vue'
 import ArticleMetadata from './globalcomponents/ArticleMetadata.vue'
+import BackToTop from './globalcomponents/BackToTop.vue'
 
 /** @type {import('vitepress').Theme} */
 export default {
   extends: DefaultTheme,
   Layout: () => {
     return h(DefaultTheme.Layout, null, {
+      'doc-footer-before': () => h(BackToTop),
       'layout-top': () => h(Fragment, [
         h(confetti),
         h(MouseClick),
@@ -33,6 +35,6 @@ export default {
     // 注册组件
     app.component('Linkcard', Linkcard);
     app.component('xgplayer', xgplayer);
-    app.component('ArticleMetadata' , ArticleMetadata)
+    app.component('ArticleMetadata', ArticleMetadata)
   }
 }

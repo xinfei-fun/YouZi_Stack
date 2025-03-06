@@ -2,6 +2,7 @@ import { defineConfig } from 'vitepress'
 import sidebarconfig from './sidebar.mjs'
 import navconfig from './nav.mjs'
 import { groupIconMdPlugin, groupIconVitePlugin } from 'vitepress-plugin-group-icons'
+import taskLists from 'markdown-it-task-checkbox'
 
 // https://vitepress.dev/reference/site-config
 export default defineConfig({
@@ -33,6 +34,7 @@ export default defineConfig({
         if (tokens[idx].tag === 'h1') htmlResult += `<ArticleMetadata />`;
         return htmlResult;
       }
+      md.use(taskLists) //todo
     },
   },
   themeConfig: {
