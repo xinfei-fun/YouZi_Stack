@@ -27,7 +27,12 @@ export default defineConfig({
       lazyLoading: true
     },
     config(md) {
-      md.use(groupIconMdPlugin) //代码组图标
+      md.use(groupIconMdPlugin); //代码组图标
+      md.renderer.rules.heading_close = (tokens, idx, options, env, slf) => {
+        let htmlResult = slf.renderToken(tokens, idx, options);
+        if (tokens[idx].tag === 'h1') htmlResult += `<ArticleMetadata />`;
+        return htmlResult;
+      }
     },
   },
   themeConfig: {
