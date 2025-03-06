@@ -3,9 +3,11 @@ import sidebarconfig from './sidebar.mjs'
 import navconfig from './nav.mjs'
 import { groupIconMdPlugin, groupIconVitePlugin } from 'vitepress-plugin-group-icons'
 import taskLists from 'markdown-it-task-checkbox'
+import vitepressProtectPlugin from "vitepress-protect-plugin"
+import { withMermaid } from 'vitepress-plugin-mermaid'
 
 // https://vitepress.dev/reference/site-config
-export default defineConfig({
+const config = defineConfig({
   lang: 'zh-CN', //语言，可选 en-US
   title: "柚子成长站",
   description: "汇聚点滴，有所收获",
@@ -18,7 +20,12 @@ export default defineConfig({
   vite: {
     publicDir: '../public', // 相对路径，从 srcDir 向上回退   
     plugins: [
-      groupIconVitePlugin() //代码组图标
+      groupIconVitePlugin(), //代码组图标
+      vitepressProtectPlugin({
+        disableF12: true, // 禁用F12开发者模式
+        disableCopy: false, // 禁用文本复制
+        disableSelect: false, // 禁用文本选择
+      }),
     ],
   },
   head: [['link', { rel: 'icon', href: '/favicon.ico' }]],
@@ -117,3 +124,5 @@ export default defineConfig({
     },
   }
 })
+
+export default withMermaid(config)
