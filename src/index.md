@@ -26,3 +26,15 @@ features:
     details: Lorem ipsum dolor sit amet, consectetur adipiscing elit
 ---
 
+<script setup>
+import HomeUnderLine from './components/HomeUnderline.vue'
+</script>
+
+<HomeUnderLine />
+
+<style>
+  .VPHero.VPHomeHero span.text{
+    margin-top: 16px;
+    margin-bottom: 12px;
+  }
+</style>
