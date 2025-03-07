@@ -96,14 +96,14 @@ export default {
     useLive2d({
       enable: true,
       model: {
-        url: 'https://gh-proxy.com/raw.githubusercontent.com/iCharlesZ/vscode-live2d-models/master/model-library/haru01/haru01.model.json'
+        url: '/modellib/haru01/haru01.model.json'
       },
       display: {
         position: 'left',
         width: '135px',
         height: '300px',
-        xOffset: '35px',
-        yOffset: '5px'
+        xOffset: '30px',
+        yOffset: '10px'
       },
       mobile: {
         show: true
