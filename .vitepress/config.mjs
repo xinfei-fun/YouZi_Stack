@@ -22,7 +22,7 @@ const config = defineConfig({
     plugins: [
       groupIconVitePlugin(), //代码组图标
       vitepressProtectPlugin({
-        disableF12: true, // 禁用F12开发者模式
+        disableF12: process.env.NODE_ENV !== 'development', // 禁用F12开发者模式
         disableCopy: false, // 禁用文本复制
         disableSelect: false, // 禁用文本选择
       }),

@@ -16,6 +16,8 @@ import BackToTop from './globalcomponents/BackToTop.vue'
 import { inBrowser } from 'vitepress'
 import { NProgress } from 'nprogress-v2/dist/index.js' // 进度条组件
 import 'nprogress-v2/dist/index.css' // 进度条样式
+import giscusTalk from 'vitepress-plugin-comment-with-giscus';
+import { useData, useRoute } from 'vitepress';
 
 /** @type {import('vitepress').Theme} */
 export default {
@@ -41,7 +43,7 @@ export default {
       router.onBeforeRouteChange = () => {
         NProgress.start() // 开始进度条
       }
-      router.onAfterRouteChange = () => {        
+      router.onAfterRouteChange = () => {
         NProgress.done() // 停止进度条
       }
     }
@@ -50,5 +52,29 @@ export default {
     googleAnalytics({
       id: 'G-4D78S8YR6M', //跟踪ID，在analytics.google.com注册即可
     });
+  },
+  setup() {
+    // Get frontmatter and route
+    const { frontmatter } = useData();
+    const route = useRoute();
+
+    // giscus配置
+    giscusTalk({
+      repo: 'xinfei-fun/YouZi_Stack', //仓库
+      repoId: 'R_kgDOODbeHw', //仓库ID
+      category: 'General', // 讨论分类
+      categoryId: 'DIC_kwDOODbeH84CnpPS', //讨论分类ID
+      mapping: 'pathname',
+      inputPosition: 'bottom',
+      lang: 'zh-CN',
+    },
+      {
+        frontmatter, route
+      },
+      //默认值为true，表示已启用，此参数可以忽略；
+      //如果为false，则表示未启用
+      //您可以使用“comment:true”序言在页面上单独启用它
+      true
+    );
   }
 }
