@@ -7,7 +7,7 @@ hero:
   text: "Front-end learning"
   tagline: 汇聚点滴，有所收获
   image:
-    src: '/assets/tororo.png'
+    src: '/img/tororo.png'
     alt: YouZi_Stack
   actions:
     - theme: brand
