@@ -18,12 +18,12 @@ hero:
       link: /about
 
 features:
-  - title: Feature A
-    details: Lorem ipsum dolor sit amet, consectetur adipiscing elit
-  - title: Feature B
-    details: Lorem ipsum dolor sit amet, consectetur adipiscing elit
-  - title: Feature C
-    details: Lorem ipsum dolor sit amet, consectetur adipiscing elit
+  - title: CSS 揭秘
+    details: 走进 CSS 世界，探索你不知道的 CSS 秘密
+  - title: 算法专栏
+    details: 前端必会算法，培养程序思维，从此告别切图仔
+  - title: 资源导航
+    details: 汇聚优质资源、开发工具，助您快速定位，提升开发效率
 ---
 
 <script setup>

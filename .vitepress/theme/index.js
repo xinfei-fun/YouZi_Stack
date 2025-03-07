@@ -19,7 +19,7 @@ import 'nprogress-v2/dist/index.css' // 进度条样式
 import giscusTalk from 'vitepress-plugin-comment-with-giscus';
 import mediumZoom from 'medium-zoom';
 import { useData, useRoute } from 'vitepress';
-import { useLive2d } from 'vitepress-theme-website';
+import useLive2d from './globalcomponents/live2d/index.ts'
 
 /** @type {import('vitepress').Theme} */
 export default {
