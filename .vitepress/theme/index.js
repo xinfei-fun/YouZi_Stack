@@ -19,6 +19,7 @@ import 'nprogress-v2/dist/index.css' // 进度条样式
 import giscusTalk from 'vitepress-plugin-comment-with-giscus';
 import mediumZoom from 'medium-zoom';
 import { useData, useRoute } from 'vitepress';
+import { useLive2d } from 'vitepress-theme-website';
 
 /** @type {import('vitepress').Theme} */
 export default {
@@ -90,5 +91,26 @@ export default {
       () => route.path,
       () => nextTick(() => initZoom())
     );
+
+    //看板娘 //
+    useLive2d({
+      enable: true,
+      model: {
+        url: 'https://gh-proxy.com/raw.githubusercontent.com/iCharlesZ/vscode-live2d-models/master/model-library/haru01/haru01.model.json'
+      },
+      display: {
+        position: 'left',
+        width: '135px',
+        height: '300px',
+        xOffset: '35px',
+        yOffset: '5px'
+      },
+      mobile: {
+        show: true
+      },
+      react: {
+        opacity: 0.8
+      }
+    })
   }
 }
