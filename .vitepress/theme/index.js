@@ -1,5 +1,5 @@
 // https://vitepress.dev/guide/custom-theme
-import { h } from 'vue'
+import { h, onMounted, watch, nextTick } from 'vue'
 import DefaultTheme from 'vitepress/theme'
 import './style.css'
 import './custom.css'
@@ -17,6 +17,7 @@ import { inBrowser } from 'vitepress'
 import { NProgress } from 'nprogress-v2/dist/index.js' // 进度条组件
 import 'nprogress-v2/dist/index.css' // 进度条样式
 import giscusTalk from 'vitepress-plugin-comment-with-giscus';
+import mediumZoom from 'medium-zoom';
 import { useData, useRoute } from 'vitepress';
 
 /** @type {import('vitepress').Theme} */
@@ -75,6 +76,19 @@ export default {
       //如果为false，则表示未启用
       //您可以使用“comment:true”序言在页面上单独启用它
       true
+    );
+
+    // 图片放大
+    const initZoom = () => {
+      // mediumZoom('[data-zoomable]', { background: 'var(--vp-c-bg)' }); // 默认
+      mediumZoom('.main img', { background: 'var(--vp-c-bg)' }); // 不显式添加{data-zoomable}的情况下为所有图像启用此功能
+    };
+    onMounted(() => {
+      initZoom();
+    });
+    watch(
+      () => route.path,
+      () => nextTick(() => initZoom())
     );
   }
 }
