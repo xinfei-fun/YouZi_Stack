@@ -9,6 +9,23 @@
     -webkit-text-fill-color: transparent;
 }
 
+/* 侧边栏修复：防止点击看板娘的时候侧边栏文字选中 */
+.VPSidebar {
+    user-select: none;
+}
+
+/* 首页图片不允许选中 */
+.VPHero.has-image.VPHomeHero .VPImage {
+    user-select: none;
+    -webkit-user-drag: none;
+    /* Chrome/Safari */
+    -moz-user-drag: none;
+    /* Firefox */
+    -ms-user-drag: none;
+    /* IE */
+    pointer-events: none;
+}
+
 /* 引用 改样式 */
 .vp-doc blockquote {
     border-radius: 10px;
