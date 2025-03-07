@@ -19,7 +19,7 @@ const config = defineConfig({
     hostname: 'https://www.xinfei.fun',
   },
   srcDir: './src',
-  vite: {
+  vite: {   
     publicDir: '../public', // 相对路径，从 srcDir 向上回退   
     plugins: [
       groupIconVitePlugin(), //代码组图标
@@ -32,7 +32,7 @@ const config = defineConfig({
   },
   head: [
     ['link', { rel: 'icon', href: '/favicon.ico' }],
-    ['script', { src: '/js/live2d.min.js' }]
+    ['script', { src: '/js/live2d.js' }]
   ],
   markdown: {
     lineNumbers: true,

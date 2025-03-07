@@ -4,11 +4,11 @@
   "description": "柚子成长站",
   "author": "Baker Kong",
   "license": "MIT",
-  "packageManager": "pnpm@10.5.2",
+  "packageManager": "pnpm@10.6.1",
   "scripts": {
-    "docs:dev": "vitepress dev",
-    "docs:build": "vitepress build",
-    "docs:preview": "vitepress preview"
+    "dev": "vitepress dev",
+    "build": "vitepress build",
+    "preview": "vitepress preview"
   },
   "devDependencies": {
     "@braintree/sanitize-url": "^7.1.1",
@@ -31,7 +31,7 @@
     "vitepress-theme-website": "^1.0.8",
     "xgplayer": "^3.0.21"
   },
-  "dependencies": {
+  "dependencies": {    
     "vue": "^3.5.13"
   },
   "pnpm": {
