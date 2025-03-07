@@ -30,7 +30,10 @@ const config = defineConfig({
       // }),
     ],
   },
-  head: [['link', { rel: 'icon', href: '/favicon.ico' }]],
+  head: [
+    ['link', { rel: 'icon', href: '/favicon.ico' }],
+    ['script', { src: '/js/live2d.min.js' }]
+  ],
   markdown: {
     lineNumbers: true,
     image: {
