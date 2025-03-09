@@ -89,24 +89,26 @@ export default {
     );
 
     //看板娘 //
-    useLive2d({
-      enable: true,
-      model: {
-        url: '/modellib/haru01/haru01.model.json'
-      },
-      display: {
-        position: 'left',
-        width: '135px',
-        height: '300px',
-        xOffset: '30px',
-        yOffset: '10px'
-      },
-      mobile: {
-        show: true
-      },
-      react: {
-        opacity: 0.8
-      }
-    })
+    if (inBrowser) {
+      useLive2d({
+        enable: true,
+        model: {
+          url: '/modellib/haru01/haru01.model.json'
+        },
+        display: {
+          position: 'left',
+          width: '135px',
+          height: '300px',
+          xOffset: '30px',
+          yOffset: '10px'
+        },
+        mobile: {
+          show: true
+        },
+        react: {
+          opacity: 0.8
+        }
+      })
+    }
   }
 }
