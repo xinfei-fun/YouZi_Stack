@@ -6,6 +6,7 @@ import taskLists from 'markdown-it-task-checkbox'
 // import vitepressProtectPlugin from "vitepress-protect-plugin"
 import { withMermaid } from 'vitepress-plugin-mermaid'
 import { visualizer } from 'rollup-plugin-visualizer'
+import sidebarGenerator from './plugins/sidebar-generator'
 
 console.log('process.env.NODE_ENV', process.env.NODE_ENV);
 
@@ -20,6 +21,7 @@ const config = defineConfig({
   sitemap: {
     hostname: 'https://www.xinfei.fun',
   },
+  cleanUrls: false,
   srcDir: './src',
   vite: {
     publicDir: '../public', // 相对路径，从 srcDir 向上回退   
@@ -32,6 +34,7 @@ const config = defineConfig({
         brotliSize: true
       }),
       groupIconVitePlugin(), //代码组图标
+      sidebarGenerator()
       // vitepressProtectPlugin({
       //   disableF12: process.env.NODE_ENV !== 'development', // 禁用F12开发者模式
       //   disableCopy: false, // 禁用文本复制

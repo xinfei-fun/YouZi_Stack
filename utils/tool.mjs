@@ -1,72 +1,33 @@
-import fs from 'fs'
-import path from 'path'
+// .vitepress/data/generate-json.js
+import { writeFileSync } from 'node:fs'
+import { resolve, dirname } from 'node:path'
+import { fileURLToPath } from 'node:url'
+import { createContentLoader } from 'vitepress'
+const __filename = fileURLToPath(import.meta.url)
+const __dirname = dirname(__filename)
 
-function generateSidebar(dir = 'src') {
-  const root = path.join(process.cwd(), dir)
-  const sidebarConfig = {}
-
-  function traverse(currentDir) {
-    try {
-      const items = fs.readdirSync(currentDir)
-      const result = []
-
-      // Get the top-level directory name for section grouping
-      const topDir = path.relative(root, currentDir).split(path.sep)[0]
-
-      items.forEach(item => {
-        const fullPath = path.join(currentDir, item)
-        const stat = fs.statSync(fullPath)
-
-        if (stat.isDirectory()) {
-          // Skip .vitepress directory and hidden directories
-          if (item === '.vitepress' || item.startsWith('.')) return
-
-          const subItems = traverse(fullPath)
-          if (subItems.length > 0) {
-            // Add items to their respective sections
-            const sectionKey = `/${topDir || item}/`
-            if (!sidebarConfig[sectionKey]) {
-              sidebarConfig[sectionKey] = [{
-                text: item,
-                collapsible: true,
-                items: subItems
-              }]
-            } else {
-              sidebarConfig[sectionKey][0].items.push(...subItems)
-            }
-          }
-        } else if (item.endsWith('.md') && item !== 'index.md') {
-          const text = item.replace('.md', '')
-          const relativePath = path.relative(root, currentDir)
-          const link = `/${relativePath.replace(/\\/g, '/')}/${text}`
-
-          result.push({
-            text,
-            link
-          })
-        }
-      })
-
-      return result
-    } catch (error) {
-      console.error(`Error traversing directory ${currentDir}:`, error)
-      return []
-    }
+const loader = createContentLoader('./**/*.md', {
+  transform(rawData) {
+    return rawData.filter(item => !item.url.endsWith('/'))
   }
+})
 
-  traverse(root)
+// 你的数据加载文件
 
-  // Write the sidebar configuration to data file
-  const dataPath = path.join(process.cwd(), 'utils', '_data.js')
-  const dataContent = `// This file is auto-generated. Do not edit manually.
-/** @type {import('vitepress').DefaultTheme.Config['sidebar']} */
-export const sidebarData = ${JSON.stringify(sidebarConfig, null, 2)}
-`
+export async function generate() {
+  // 1. 加载数据
+  const rawData = await loader.load()
 
-  fs.writeFileSync(dataPath, dataContent, 'utf-8')
-  return sidebarConfig
+  // 3. 定义输出路径（项目根目录下生成）
+  const outputPath = resolve(__dirname, 'content-dump.json')
+
+  // 4. 写入文件
+  writeFileSync(
+    outputPath,
+    JSON.stringify(rawData, null, 2),
+    'utf-8'
+  )
+
+  console.log(`✅ 数据已写入: ${outputPath}`)
 }
 
-generateSidebar()
-
-export default generateSidebar
