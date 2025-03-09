@@ -11,7 +11,7 @@ console.log('process.env.NODE_ENV', process.env.NODE_ENV);
 
 // https://vitepress.dev/reference/site-config
 const config = defineConfig({
-  base: '/YouZi_Stack/',
+  base: '/',
   lang: 'zh-CN', //语言，可选 en-US
   title: "柚子成长站",
   description: "汇聚点滴，有所收获",
