@@ -4,3 +4,4 @@
 stats.html
 stats.json
 stats.yml
+.vitepress/plugins/_sidebar.json
