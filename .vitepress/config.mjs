@@ -11,7 +11,7 @@ console.log('process.env.NODE_ENV', process.env.NODE_ENV);
 
 // https://vitepress.dev/reference/site-config
 const config = defineConfig({
-  base: '/',
+  base: '/YouZi_Stack/',
   lang: 'zh-CN', //语言，可选 en-US
   title: "柚子成长站",
   description: "汇聚点滴，有所收获",
@@ -26,7 +26,7 @@ const config = defineConfig({
     plugins: [
       visualizer({
         template: "treemap",
-        sourcemap: false,        
+        sourcemap: false,
         open: false,
         gzipSize: true,
         brotliSize: true
@@ -76,30 +76,55 @@ const config = defineConfig({
     //返回顶部文字修改 //
     returnToTopLabel: '返回顶部',
     search: {
-      provider: 'local',
+      provider: 'algolia',
       options: {
-        translations: {
-          button: {
-            buttonText: '搜索',
-            buttonAriaLabel: '搜索'
+        appId: 'IQL7R3ODWD',
+        apiKey: 'beb5404457e245cc1397d34625586ac4',
+        indexName: 'xinfei',
+        locales: {
+          root: {
+            placeholder: '搜索文档',
+            translations: {
+              button: {
+                buttonText: '搜索文档',
+                buttonAriaLabel: '搜索文档'
+              },
+              modal: {
+                searchBox: {
+                  resetButtonTitle: '清除查询条件',
+                  resetButtonAriaLabel: '清除查询条件',
+                  cancelButtonText: '取消',
+                  cancelButtonAriaLabel: '取消'
+                },
+                startScreen: {
+                  recentSearchesTitle: '搜索历史',
+                  noRecentSearchesText: '没有搜索历史',
+                  saveRecentSearchButtonTitle: '保存至搜索历史',
+                  removeRecentSearchButtonTitle: '从搜索历史中移除',
+                  favoriteSearchesTitle: '收藏',
+                  removeFavoriteSearchButtonTitle: '从收藏中移除'
+                },
+                errorScreen: {
+                  titleText: '无法获取结果',
+                  helpText: '你可能需要检查你的网络连接'
+                },
+                footer: {
+                  selectText: '选择',
+                  navigateText: '切换',
+                  closeText: '关闭',
+                  searchByText: '搜索提供者'
+                },
+                noResultsScreen: {
+                  noResultsText: '无法找到相关结果',
+                  suggestedQueryText: '你可以尝试查询',
+                  reportMissingResultsText: '你认为该查询应该有结果？',
+                  reportMissingResultsLinkText: '点击反馈'
+                },
+              },
+            },
           },
-          modal: {
-            displayDetails: '详细/简略模式',
-            resetButtonTitle: '重置搜索',
-            backButtonTitle: '关闭搜索',
-            noResultsText: '没有结果',
-            footer: {
-              selectText: '选择',
-              selectKeyAriaLabel: '输入',
-              navigateText: '导航',
-              navigateUpKeyAriaLabel: '上箭头',
-              navigateDownKeyAriaLabel: '下箭头',
-              closeText: '关闭',
-              closeKeyAriaLabel: 'esc'
-            }
-          }
-        }
-      }
+        },
+      },
     },
     nav: navconfig,
     sidebar: sidebarconfig,
