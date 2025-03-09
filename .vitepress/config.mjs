@@ -5,6 +5,7 @@ import { groupIconMdPlugin, groupIconVitePlugin } from 'vitepress-plugin-group-i
 import taskLists from 'markdown-it-task-checkbox'
 // import vitepressProtectPlugin from "vitepress-protect-plugin"
 import { withMermaid } from 'vitepress-plugin-mermaid'
+import { visualizer } from 'rollup-plugin-visualizer'
 
 console.log('process.env.NODE_ENV', process.env.NODE_ENV);
 
@@ -23,6 +24,13 @@ const config = defineConfig({
   vite: {
     publicDir: '../public', // 相对路径，从 srcDir 向上回退   
     plugins: [
+      visualizer({
+        template: "treemap",
+        sourcemap: false,        
+        open: false,
+        gzipSize: true,
+        brotliSize: true
+      }),
       groupIconVitePlugin(), //代码组图标
       // vitepressProtectPlugin({
       //   disableF12: process.env.NODE_ENV !== 'development', // 禁用F12开发者模式
@@ -30,10 +38,19 @@ const config = defineConfig({
       //   disableSelect: false, // 禁用文本选择
       // }),
     ],
+    build: {
+      chunkSizeWarningLimit: 800,
+      rollupOptions: {
+        output: {
+          manualChunks: {
+            'live2d': ['.vitepress/theme/globalcomponents/live2d/index.ts']
+          }
+        }
+      }
+    }
   },
   head: [
-    ['link', { rel: 'icon', href: '/favicon.ico' }],
-    ['script', { src: '/js/live2d.js' }]
+    ['link', { rel: 'icon', href: '/favicon.ico' }]
   ],
   markdown: {
     lineNumbers: true,

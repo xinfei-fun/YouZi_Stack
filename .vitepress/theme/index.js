@@ -6,8 +6,6 @@ import './custom.css'
 import googleAnalytics from 'vitepress-plugin-google-analytics'
 import 'virtual:group-icons.css'
 import { Fragment } from 'vue'
-import Linkcard from './globalcomponents/Linkcard.vue'
-import xgplayer from './globalcomponents/xgplayer.vue'
 import confetti from './globalcomponents/confetti.vue'
 import MouseClick from './globalcomponents/MouseClick.vue'
 import MouseFollower from './globalcomponents/MouseFollower.vue'
@@ -35,9 +33,7 @@ export default {
     })
   },
   enhanceApp({ app, router, siteData }) {
-    // 注册组件
-    app.component('Linkcard', Linkcard);
-    app.component('xgplayer', xgplayer);
+    // 注册组件   
     app.component('ArticleMetadata', ArticleMetadata);
 
     if (inBrowser) {
