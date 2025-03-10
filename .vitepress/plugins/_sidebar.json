@@ -10,6 +10,12 @@
     "url": "/blog/basic/浏览器渲染原理01.html"
   },
   {
+    "frontmatter": {
+      "order": 2
+    },
+    "url": "/blog/basic/浏览器渲染原理02.html"
+  },
+  {
     "frontmatter": {},
     "url": "/daily/浏览器精确计时问题.html"
   },
