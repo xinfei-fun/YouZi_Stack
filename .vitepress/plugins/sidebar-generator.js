@@ -16,9 +16,9 @@ export default function sidebarGenerator(options = {}) {
     const initLoader = () => {
         if (!loader) {
             loader = createContentLoader(mergedOpts.contentGlob, {
-                // transform(result) {
-                //     return result.filter(item => item.url.endsWith('.html'))
-                // }
+                transform(result) {
+                    return result.filter(item => item.url.endsWith('.html'))
+                }
             });
         }
     }

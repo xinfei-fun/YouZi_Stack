@@ -1,3 +1,22 @@
+import { loadJson } from './theme/utils/loadJson.mjs'
+
+const sidebarData = loadJson('./.vitepress/plugins/_sidebar.json');
+
+const blog_basic_items = sidebarData.filter(item => item.url.startsWith('/blog/basic/')).map(item => ({
+    text: item.url.split('/').pop().replace(/\.[^/.]+$/, ""),
+    link: item.url
+}));
+
+const daily_items = sidebarData.filter(item => item.url.startsWith('/daily/')).map(item => ({
+    text: item.url.split('/').pop().replace(/\.[^/.]+$/, ""),
+    link: item.url
+}));
+
+const other_items = sidebarData.filter(item => item.url.startsWith('/other/')).map(item => ({
+    text: item.url.split('/').pop().replace(/\.[^/.]+$/, ""),
+    link: item.url
+}));
+
 /** @type {import('vitepress').DefaultTheme.Config.Sidebar}  */
 export default {
     '/blog/basic/': [
@@ -9,10 +28,7 @@ export default {
                     text: '📖 阅读须知',
                     link: '/blog/basic/index.md'
                 },
-                {
-                    text: '浏览器渲染原理01',
-                    link: '/blog/basic/浏览器渲染原理01'
-                }
+                ...blog_basic_items
             ]
         }
     ],
@@ -21,10 +37,7 @@ export default {
             text: '每日一题',
             collapsed: false,
             items: [
-                {
-                    text: '浏览器精确计时问题',
-                    link: '/daily/浏览器精确计时问题'
-                }
+                ...daily_items
             ]
         }
     ],
@@ -33,14 +46,7 @@ export default {
             text: '随想录',
             collapsed: false,
             items: [
-                {
-                    text: 'api-examples',
-                    link: '/other/api-examples'
-                },
-                {
-                    text: 'markdown-examples',
-                    link: '/other/markdown-examples'
-                }
+                ...other_items
             ]
         }
     ]
