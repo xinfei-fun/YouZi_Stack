@@ -38,14 +38,14 @@ export default function sidebarGenerator(options = {}) {
         buildStart: generateSidebar,
 
         // 开发模式配置
-        configureServer(server) {
-            initLoader();
-            server.watcher.add(loader.watch);
-            server.watcher.on('change', async (file) => {
-                if (file.endsWith('.md')) {
-                    generateSidebar();
-                }
-            });
-        }
+        // configureServer(server) {
+        //     initLoader();
+        //     server.watcher.add(loader.watch);
+        //     server.watcher.on('change', async (file) => {
+        //         if (file.endsWith('.md')) {
+        //             generateSidebar();
+        //         }
+        //     });
+        // }
     }
 }
