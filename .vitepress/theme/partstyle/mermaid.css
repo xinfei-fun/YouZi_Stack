@@ -1,10 +1,14 @@
 /* 为 Mermaid 图表容器添加缩放效果 */
 .mermaid {
-    cursor: zoom-in;
-    transition: transform 0.3s;
-  }
-  
-  .mermaid.zoomed {
-    transform: scale(1.5);
-    cursor: zoom-out;
-  }
+  cursor: zoom-in;
+  transition: transform 0.3s;
+}
+
+.mermaid.zoomed {
+  transform: scale(1.5);
+  cursor: zoom-out;
+}
+
+.mermaid:hover {
+  transform: scale(1.02);
+}
