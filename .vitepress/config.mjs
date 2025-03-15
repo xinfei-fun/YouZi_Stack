@@ -3,7 +3,6 @@ import sidebarconfig from './sidebar.mjs'
 import navconfig from './nav.mjs'
 import { groupIconMdPlugin, groupIconVitePlugin } from 'vitepress-plugin-group-icons'
 import taskLists from 'markdown-it-task-checkbox'
-// import vitepressProtectPlugin from "vitepress-protect-plugin"
 import { withMermaid } from 'vitepress-plugin-mermaid'
 import { visualizer } from 'rollup-plugin-visualizer'
 import sidebarGenerator from './plugins/sidebar-generator'
@@ -35,11 +34,6 @@ const config = defineConfig({
       }),
       groupIconVitePlugin(), //代码组图标
       sidebarGenerator()
-      // vitepressProtectPlugin({
-      //   disableF12: process.env.NODE_ENV !== 'development', // 禁用F12开发者模式
-      //   disableCopy: false, // 禁用文本复制
-      //   disableSelect: false, // 禁用文本选择
-      // }),
     ],
     build: {
       chunkSizeWarningLimit: 800,

@@ -292,3 +292,7 @@
     z-index: 31;
     /* 给的值是21，但是实测盖不住，直接999 */
 }
+
+.viewer-container.viewer-backdrop.yz_vimageviewer {
+    background-color: var(--vp-c-bg);
+}
