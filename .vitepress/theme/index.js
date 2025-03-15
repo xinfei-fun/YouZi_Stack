@@ -18,7 +18,7 @@ import giscusTalk from 'vitepress-plugin-comment-with-giscus';
 import mediumZoom from 'medium-zoom';
 import { useData, useRoute } from 'vitepress';
 import useLive2d from './globalcomponents/live2d/index.ts'
-import MermaidZoom from './globalcomponents/MermaidZoom.js'
+import MermaidPreview from './globalcomponents/MermaidPreview.vue'
 
 /** @type {import('vitepress').Theme} */
 export default {
@@ -27,7 +27,7 @@ export default {
     return h(DefaultTheme.Layout, null, {
       'doc-footer-before': () => h(Fragment, [
         h(BackToTop),
-        h(MermaidZoom)
+        h(MermaidPreview)
       ]),
       'layout-top': () => h(Fragment, [
         h(confetti),
