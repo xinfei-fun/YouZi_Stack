@@ -4,8 +4,7 @@ import navconfig from './nav.mjs'
 import { groupIconMdPlugin, groupIconVitePlugin } from 'vitepress-plugin-group-icons'
 import taskLists from 'markdown-it-task-checkbox'
 import { withMermaid } from 'vitepress-plugin-mermaid'
-import { visualizer } from 'rollup-plugin-visualizer'
-import sidebarGenerator from './plugins/sidebar-generator'
+import { visualizer } from 'rollup-plugin-visualizer';
 
 console.log('process.env.NODE_ENV', process.env.NODE_ENV);
 
@@ -13,7 +12,7 @@ console.log('process.env.NODE_ENV', process.env.NODE_ENV);
 const config = defineConfig({
   base: '/',
   lang: 'zh-CN', //语言，可选 en-US
-  title: "柚子成长站",
+  title: "柚子成长栈",
   description: "汇聚点滴，有所收获",
   // appearance: 'dark',
   // 站点地图
@@ -33,7 +32,6 @@ const config = defineConfig({
         brotliSize: true
       }),
       groupIconVitePlugin(), //代码组图标
-      sidebarGenerator()
     ],
     build: {
       chunkSizeWarningLimit: 800,

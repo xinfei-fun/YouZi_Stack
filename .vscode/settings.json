@@ -1,0 +1,7 @@
+{
+  // 仅在当前项目生效的配置
+  "[javascript]": {
+    "editor.defaultFormatter": "vscode.typescript-language-features",
+    "editor.formatOnSave": true
+  },
+}

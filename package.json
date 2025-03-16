@@ -1,7 +1,7 @@
 {
   "name": "youzistack",
   "version": "1.0.0",
-  "description": "柚子成长站",
+  "description": "柚子成长栈",
   "author": "Baker Kong",
   "license": "MIT",
   "packageManager": "pnpm@10.6.1",
@@ -27,6 +27,7 @@
     "vitepress-plugin-google-analytics": "^1.0.2",
     "vitepress-plugin-group-icons": "^1.3.6",
     "vitepress-plugin-mermaid": "^2.0.17",
+    "vitepress-sidebar": "^1.31.1",
     "xgplayer": "^3.0.21"
   },
   "dependencies": {
