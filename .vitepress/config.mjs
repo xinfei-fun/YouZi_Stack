@@ -5,6 +5,7 @@ import { groupIconMdPlugin, groupIconVitePlugin } from 'vitepress-plugin-group-i
 import taskLists from 'markdown-it-task-checkbox'
 import { withMermaid } from 'vitepress-plugin-mermaid'
 import { visualizer } from 'rollup-plugin-visualizer';
+import { vitepressDemoPlugin } from 'vitepress-demo-plugin'; 
 
 console.log('process.env.NODE_ENV', process.env.NODE_ENV);
 
@@ -53,6 +54,7 @@ const config = defineConfig({
       lazyLoading: true
     },
     config(md) {
+      md.use(vitepressDemoPlugin); //代码演示
       md.use(groupIconMdPlugin); //代码组图标
       md.renderer.rules.heading_close = (tokens, idx, options, env, slf) => {
         let htmlResult = slf.renderToken(tokens, idx, options);

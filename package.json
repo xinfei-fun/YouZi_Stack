@@ -23,6 +23,7 @@
     "nprogress-v2": "^1.1.10",
     "rollup-plugin-visualizer": "^5.14.0",
     "vitepress": "^1.6.3",
+    "vitepress-demo-plugin": "^1.3.1",
     "vitepress-plugin-comment-with-giscus": "^1.1.15",
     "vitepress-plugin-google-analytics": "^1.0.2",
     "vitepress-plugin-group-icons": "^1.3.6",
