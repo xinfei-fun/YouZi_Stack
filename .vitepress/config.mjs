@@ -6,8 +6,11 @@ import taskLists from 'markdown-it-task-checkbox'
 import { withMermaid } from 'vitepress-plugin-mermaid'
 import { visualizer } from 'rollup-plugin-visualizer';
 import { vitepressDemoPlugin } from 'vitepress-demo-plugin'; 
+import path from 'node:path';
 
 console.log('process.env.NODE_ENV', process.env.NODE_ENV);
+
+const __dirname = import.meta.dirname;
 
 // https://vitepress.dev/reference/site-config
 const config = defineConfig({
@@ -54,7 +57,10 @@ const config = defineConfig({
       lazyLoading: true
     },
     config(md) {
-      md.use(vitepressDemoPlugin); //代码演示
+      //代码演示
+      md.use(vitepressDemoPlugin, {
+        demoDir: path.resolve(__dirname, '../src/demo'), 
+      }); 
       md.use(groupIconMdPlugin); //代码组图标
       md.renderer.rules.heading_close = (tokens, idx, options, env, slf) => {
         let htmlResult = slf.renderToken(tokens, idx, options);
