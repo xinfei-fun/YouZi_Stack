@@ -1,0 +1,39 @@
+.main {
+    display: flex;
+    flex-direction: column;
+    place-items: center;
+}
+
+.lrc_container {
+    margin-top: 24px;
+    height: 400px;
+    overflow: hidden;
+    width: 100%;
+}
+
+.lrc_scroll {
+    overflow-y: auto;
+    overflow-x: hidden;
+    text-align: center;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    transition: all 0.2s;
+}
+
+.lrc_scroll>li {
+    color: #666;
+    user-select: none;
+    font-size: 16px;
+    transition: all 0.2s;
+    padding-block: 5px;
+}
+
+.lrc_scroll>li.active {
+    color: blue;
+    transform: scale(1.2);
+}
+
+html.dark .lrc_scroll>li.active {
+    color: #fff;
+}
