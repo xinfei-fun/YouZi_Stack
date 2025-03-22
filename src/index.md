@@ -20,6 +20,7 @@ hero:
 features:
   - title: CSS 揭秘
     details: 走进 CSS 世界，探索你不知道的 CSS 秘密
+    link: /category/csstrick/    
   - title: 算法专栏
     details: 前端必会算法，培养程序思维，从此告别切图仔
   - title: 资源导航
