@@ -20,8 +20,7 @@ import vImageViewer from "vitepress-plugin-image-viewer/lib/vImageViewer.vue";
 import { useData, useRoute } from 'vitepress';
 import useLive2d from './globalcomponents/live2d/index.ts'
 import MermaidPreview from './globalcomponents/MermaidPreview.vue'
-
-
+import loadingPlugin from './directives/index.js'
 
 /** @type {import('vitepress').Theme} */
 export default {
@@ -43,6 +42,8 @@ export default {
     // 注册组件   
     app.component('ArticleMetadata', ArticleMetadata);
     app.component("vImageViewer", vImageViewer);
+
+    app.use(loadingPlugin)
 
     if (inBrowser) {
       NProgress.configure({ showSpinner: false })
