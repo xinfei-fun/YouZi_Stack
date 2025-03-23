@@ -30,24 +30,22 @@
     console.log(lyricsMap);
 
     // 渲染歌词
-    const ul = document.querySelector('.lrc_scroll');
+    const ul = document.querySelector('.lrc_scroll');    
     const lis = Object.values(lyricsMap).map(lyric => {
         const li = document.createElement('li');
         li.innerText = lyric;
         return li;
     });
-    ul.append(...lis);
+    ul.replaceChildren(...lis);
 
     // 歌曲时间排序
     const sortedTimes = Object.keys(lyricsMap).sort((a, b) => a - b);
-    sortedTimes.unshift(-1);
     sortedTimes.push(Number.MAX_SAFE_INTEGER);
 
     // 监听歌曲播放
     const audio = document.querySelector('#audio');
     audio.addEventListener('timeupdate', (event) => {
-        const currentTime = event.target.currentTime;
-        console.log("🚀 ~ audio.addEventListener ~ currentTime:", currentTime)
+        const currentTime = event.target.currentTime;        
 
         // 找到当前时间对应的歌词下一行
         const currentInx = sortedTimes.findIndex(time => currentTime < time);
@@ -57,14 +55,16 @@
             li.classList.remove('active');
         });
 
-        // 高亮歌词
-        const currentLi = ul.children[currentInx];
-        if (!currentLi.classList.contains('active')) {
-            currentLi.classList.add('active');
-        }
+        if (currentInx > 0) {
+            // 高亮歌词
+            const currentLi = ul.children[currentInx - 1];
+            if (!currentLi.classList.contains('active')) {
+                currentLi.classList.add('active');
+            }
 
-        // 滚动歌词
-        ul.style.transform = `translateY(-${(currentInx - 1) * 34}px)`;
+            // 滚动歌词
+            ul.style.transform = `translateY(-${(currentInx - 1) * 34}px)`;
+        }
     });
 }())
 
