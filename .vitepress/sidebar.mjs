@@ -35,5 +35,12 @@ export default generateSidebar([
         basePath: '/daily/',
         resolvePath: '/daily/',
         rootGroupText: '每日一题'
+    },
+    {
+        documentRootPath: '/src',
+        scanStartPath: 'category/csstrick',
+        basePath: '/category/csstrick/',
+        resolvePath: '/category/csstrick/',
+        rootGroupText: 'CSS 揭秘'
     }
 ])
