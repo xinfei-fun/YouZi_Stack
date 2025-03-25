@@ -2,7 +2,7 @@ name: Build and Deploy VitePress via FTP
 
 on:
   push:
-    branches: [main]  # 你的分支名
+    branches: [main]
   workflow_dispatch:
 
 permissions:
@@ -16,54 +16,55 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout
+      - name: Checkout code
         uses: actions/checkout@v4
         with:
-          fetch-depth: 0
+          fetch-depth: 0  # 确保获取完整提交历史（用于 VitePress 的 lastUpdated）
 
-      # 如果是 pnpm 项目，保留以下设置
+      # 使用 pnpm v10（与本地一致）
       - uses: pnpm/action-setup@v3
         with:
-          version: 9
+          version: 10  # 与本地 pnpm 版本一致
 
-      - name: Setup Node
+      - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
           node-version: 20
-          cache: pnpm
+          cache: pnpm  # 启用 pnpm 缓存
 
       - name: Install dependencies
         run: pnpm install
 
-      - name: Build with VitePress
-        run: pnpm run build  # 确保生成到 .vitepress/dist 目录
+      - name: Build VitePress
+        run: pnpm run build  # 确保生成到 .vitepress/dist
+
+      # 上传构建产物（供后续 Job 使用）
+      - name: Upload Artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: vitepress-dist  # Artifact 名称
+          path: .vitepress/dist/  # 上传的目录路径
 
   deploy:
-    needs: build
+    needs: build  # 依赖 build 任务
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout
-        uses: actions/checkout@v4
-
-      # 下载构建好的 dist 目录（来自 build 任务）
-      - name: Download artifact
+      # 下载构建产物
+      - name: Download Artifact
         uses: actions/download-artifact@v4
         with:
-          name: .vitepress/dist
-          path: .vitepress/dist
+          name: vitepress-dist  # 必须与上传时的名称一致
+          path: .vitepress/dist/  # 下载到本地的路径
 
-      # FTP 部署步骤（替换原来的 GitHub Pages 部署）
+      # FTP 部署
       - name: Deploy via FTP
         uses: SamKirkland/FTP-Deploy-Action@v4.3.5
         with:
           server: ${{ secrets.FTP_SERVER }}
           username: ${{ secrets.FTP_USERNAME }}
           password: ${{ secrets.FTP_PASSWORD }}
-          local-dir: .vitepress/dist/  # VitePress 默认输出目录
-          server-dir: ./  # 远程服务器目标路径
-          exclude: |
-            .DS_Store
-            *.md
+          local-dir: .vitepress/dist/
+          server-dir: /
           force: true
         env:
-          LOG_LEVEL: verbose  # 调试时启用详细日志
+          LOG_LEVEL: verbose  # 调试时启用
