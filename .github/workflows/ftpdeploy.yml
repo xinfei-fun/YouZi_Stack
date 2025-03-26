@@ -1,0 +1,70 @@
+name: Build and Deploy VitePress via FTP
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0  # 确保获取完整提交历史（用于 VitePress 的 lastUpdated）
+
+      # 使用 pnpm v10（与本地一致）
+      - uses: pnpm/action-setup@v3
+        with:
+          version: 10  # 与本地 pnpm 版本一致
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: pnpm  # 启用 pnpm 缓存
+
+      - name: Install dependencies
+        run: pnpm install
+
+      - name: Build VitePress
+        run: pnpm run build  # 确保生成到 .vitepress/dist
+
+      # 上传构建产物（供后续 Job 使用）
+      - name: Upload Artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: vitepress-dist  # Artifact 名称
+          path: .vitepress/dist/  # 上传的目录路径
+
+  deploy:
+    needs: build  # 依赖 build 任务
+    runs-on: ubuntu-latest
+    steps:
+      # 下载构建产物
+      - name: Download Artifact
+        uses: actions/download-artifact@v4
+        with:
+          name: vitepress-dist  # 必须与上传时的名称一致
+          path: .vitepress/dist/  # 下载到本地的路径
+
+      # FTP 部署
+      - name: Deploy via FTP
+        uses: SamKirkland/FTP-Deploy-Action@v4.3.5
+        with:
+          server: ${{ secrets.FTP_SERVER }}
+          username: ${{ secrets.FTP_USERNAME }}
+          password: ${{ secrets.FTP_PASSWORD }}
+          local-dir: .vitepress/dist/
+          server-dir: /
+          force: true
+        env:
+          LOG_LEVEL: verbose  # 调试时启用
