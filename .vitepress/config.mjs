@@ -13,7 +13,7 @@ const config = defineConfig({
   base: '/',
   lang: 'zh-CN', //语言，可选 en-US
   title: "柚子成长栈",
-  description: "汇聚点滴，有所收获",
+  description: "XinFei.Fun是一个分享编程技术、开发的个人博客，一站式前端开发指南！",
   // appearance: 'dark',
   // 站点地图
   sitemap: {
@@ -45,14 +45,15 @@ const config = defineConfig({
     }
   },
   head: [
-    ['link', { rel: 'icon', href: '/favicon.ico' }]
+    ['link', { rel: 'icon', href: '/favicon.ico' }],
+    ['meta', { name: 'keywords', content: '柚子成长栈,前端,编程,开发,技术,学习,vitepress' }],
   ],
   markdown: {
     lineNumbers: true,
     image: {
       lazyLoading: true
     },
-    config(md) {       
+    config(md) {
       md.use(groupIconMdPlugin); //代码组图标
       md.renderer.rules.heading_close = (tokens, idx, options, env, slf) => {
         let htmlResult = slf.renderToken(tokens, idx, options);
