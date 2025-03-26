@@ -23,6 +23,7 @@ features:
     link: /category/csstrick/歌词跟随歌曲播放效果.html    
   - title: 算法专栏
     details: 前端必会算法，培养程序思维，从此告别切图仔
+    link: /category/algorithm/英文输入法.html
   - title: 资源导航
     details: 汇聚优质资源、开发工具，助您快速定位，提升开发效率
 ---
