@@ -2,7 +2,7 @@
  * @Author: felixzhou9191 felixzhou9191@gmail.com
  * @Date: 2025-03-24 23:08:31
  * @LastEditors: felixzhou9191 felixzhou9191@gmail.com
- * @LastEditTime: 2025-03-24 23:44:53
+ * @LastEditTime: 2025-03-26 22:09:46
  * @FilePath: \YouZi_Stack\utils\_data.js
  * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
  */
@@ -21,11 +21,7 @@ export const sidebarData = {
         {
           "text": "浏览器渲染原理02",
           "link": "/blog/浏览器渲染原理02"
-        },
-        {
-          "text": "从输入Url到页面渲染",
-          "link": "/blog/从输入Url到页面渲染"
-        },
+        }
       ]
     }
   ],
