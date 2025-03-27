@@ -14,48 +14,55 @@ export default generateSidebar([
         scanStartPath: 'blog/basic',
         basePath: '/blog/basic/',
         resolvePath: '/blog/basic/',
-        rootGroupText: '基础巩固'
+        rootGroupText: '基础巩固',
+        sortMenusByFrontmatterOrder: true
     },
     {
         documentRootPath: '/src',
         scanStartPath: 'blog/advanced',
         basePath: '/blog/advanced/',
         resolvePath: '/blog/advanced/',
-        rootGroupText: '进阶学习'
+        rootGroupText: '进阶学习',
+        sortMenusByFrontmatterOrder: true
     },
     {
         documentRootPath: '/src',
         scanStartPath: 'blog/enhancement',
         basePath: '/blog/enhancement/',
         resolvePath: '/blog/enhancement/',
-        rootGroupText: '强化拓展'
+        rootGroupText: '强化拓展',
+        sortMenusByFrontmatterOrder: true
     },
     {
         documentRootPath: '/src',
         scanStartPath: 'other',
         basePath: '/other/',
         resolvePath: '/other/',
-        rootGroupText: '随想录'
+        rootGroupText: '随想录',
+        sortMenusByFrontmatterOrder: true
     },
     {
         documentRootPath: '/src',
         scanStartPath: 'daily',
         basePath: '/daily/',
         resolvePath: '/daily/',
-        rootGroupText: '每日一题'
+        rootGroupText: '每日一题',
+        sortMenusByFrontmatterOrder: true
     },
     {
         documentRootPath: '/src',
         scanStartPath: 'category/csstrick',
         basePath: '/category/csstrick/',
         resolvePath: '/category/csstrick/',
-        rootGroupText: 'CSS 揭秘'
+        rootGroupText: 'CSS 揭秘',
+        sortMenusByFrontmatterOrder: true
     },
     {
         documentRootPath: '/src',
         scanStartPath: 'category/algorithm',
         basePath: '/category/algorithm/',
         resolvePath: '/category/algorithm/',
-        rootGroupText: '算法专栏'
+        rootGroupText: '算法专栏',
+        sortMenusByFrontmatterOrder: true
     }
 ])
