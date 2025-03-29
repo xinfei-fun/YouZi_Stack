@@ -1,5 +1,7 @@
 ---
 order: 4.1
+avatar: https://avatars.githubusercontent.com/u/17995099?v=4&size=16
+author: Baker
 ---
 
 # 你不知道的 Hashbang 注释

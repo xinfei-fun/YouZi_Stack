@@ -1,5 +1,7 @@
 ---
 order: 4
+avatar: https://avatars.githubusercontent.com/u/17995099?v=4&size=16
+author: Baker
 ---
 
 # JavaScript 知识整理

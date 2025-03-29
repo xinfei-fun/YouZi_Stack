@@ -9,7 +9,7 @@ import { Fragment } from 'vue'
 import confetti from './globalcomponents/confetti.vue'
 import MouseClick from './globalcomponents/MouseClick.vue'
 import MouseFollower from './globalcomponents/MouseFollower.vue'
-import ArticleMetadata from './globalcomponents/ArticleMetadata.vue'
+import ArticleMetadata from './globalcomponents/articlemetadata/ArticleMetadata.vue'
 import BackToTop from './globalcomponents/BackToTop.vue'
 import { inBrowser } from 'vitepress'
 import { NProgress } from 'nprogress-v2/dist/index.js' // 进度条组件
