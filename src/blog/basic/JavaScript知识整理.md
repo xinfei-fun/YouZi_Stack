@@ -1,5 +1,5 @@
 ---
-order: 4
+order: 10
 avatar: https://avatars.githubusercontent.com/u/17995099?v=4&size=16
 author: Baker
 ---
@@ -45,5 +45,7 @@ JavaScript 是区分大小写的，并使用 Unicode 字符集
 - 块级作用域：用一对花括号创建的作用域（块）
 
 ::: tip 提示
-想了解更多关于**作用域**的，可以参考 [你不知道的Hashbang注释](./你不知道的Hashbang注释.html)
+想了解更多关于**作用域**的，
 :::
+
+--- 未完 待续 --- 
