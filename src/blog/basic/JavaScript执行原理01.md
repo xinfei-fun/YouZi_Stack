@@ -19,10 +19,10 @@ author: Baker
 
 ### 合集目录
 
-1. **JavaScript 执行机制 -- 上篇**（当前篇）
+1. **JavaScript 执行原理 -- 上篇**（当前篇）
    - 执行上下文 | JS执行三阶段 | 变量提升
 
-2. **JavaScript 执行机制 -- 下篇**
+2. **JavaScript 执行原理 -- 下篇**
    - 暂时性死区 | 作用域链 | this 绑定
 
 ## JavaScript运行三阶段
