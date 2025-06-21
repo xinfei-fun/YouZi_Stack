@@ -30,7 +30,6 @@
 
 <script>
 import { ref, defineComponent, onMounted } from 'vue'
-// import '../live2d'
 
 export default defineComponent({
   props: {
@@ -40,10 +39,12 @@ export default defineComponent({
     const live2dRef = ref()
 
     onMounted(() => {
+      debugger
       if (!props.live2dOptions.enable) return
       // 是否显示看板娘
       const isShow = !(!props.live2dOptions.mobile.show && !isPC())
       if (!isShow) return
+      console.log("🚀 ~ onMounted ~ props.live2dOptions.model.url:", props.live2dOptions.model.url)
       window.loadlive2d?.('live2dCanvasElement', props.live2dOptions.model.url)
     })
 
