@@ -2,7 +2,7 @@ name: Build and Deploy VitePress via FTP
 
 on:
   push:
-    branches: [main]
+    branches: [main-drop]
   workflow_dispatch:
 
 permissions:
