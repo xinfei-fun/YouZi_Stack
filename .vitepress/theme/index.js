@@ -56,7 +56,7 @@ export default {
 
         // ...
         googleAnalytics({
-            id: 'G-4D78S8YR6M', //跟踪ID，在analytics.google.com注册即可
+            id: 'G-XFGL4906FV', //跟踪ID，在analytics.google.com注册即可
         });
     },
     setup() {
