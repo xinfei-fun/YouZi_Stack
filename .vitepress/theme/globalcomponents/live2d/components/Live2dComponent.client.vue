@@ -43,7 +43,7 @@ export default defineComponent({
       // 是否显示看板娘
       const isShow = !(!props.live2dOptions.mobile.show && !isPC())
       if (!isShow) return
-      console.log("🚀 ~ onMounted ~ props.live2dOptions.model.url:", props.live2dOptions.model.url)
+      console.log("🚀 ~ onMounted ~ props.live2dOptions.model")
       window.loadlive2d?.('live2dCanvasElement', props.live2dOptions.model.url)
     })
 

@@ -91,7 +91,7 @@ function createAndMountApp(container, options) {
     app.mount(container)
     console.log('Vue应用已挂载到容器', container.id)
 
-    window.loadlive2d('live2dCanvasElement', options.model.url)
+    // window.loadlive2d('live2dCanvasElement', options.model.url)
 
     // 返回包含destroy方法的对象
     return {
