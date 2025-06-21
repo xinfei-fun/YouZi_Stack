@@ -39,7 +39,6 @@ export default defineComponent({
     const live2dRef = ref()
 
     onMounted(() => {
-      debugger
       if (!props.live2dOptions.enable) return
       // 是否显示看板娘
       const isShow = !(!props.live2dOptions.mobile.show && !isPC())

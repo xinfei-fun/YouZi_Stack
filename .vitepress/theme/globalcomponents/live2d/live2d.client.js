@@ -30,7 +30,6 @@ function loadLive2dScript() {
  * @returns {Object} - 包含destroy方法的对象
  */
 export function mountLive2d(options) {
-    debugger
     // 默认配置
     const defaultOptions = {
         enable: true,
