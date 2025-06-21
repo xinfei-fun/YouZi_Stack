@@ -69,7 +69,7 @@ const config = defineConfig({
             options: {
                 appId: '0VQD953Y81',
                 apiKey: 'b5eea156c91623576309eeb4edf93680',
-                indexName: 'youzistack',
+                indexName: 'youzistack_pages',
                 locales: {
                     root: {
                         placeholder: '搜索文档',
