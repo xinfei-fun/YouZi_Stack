@@ -26,6 +26,7 @@ features:
     link: /category/algorithm/英文输入法.html
   - title: 资源导航
     details: 汇聚优质资源、开发工具，助您快速定位，提升开发效率
+    link: /category/resnav/文件切片工具
 ---
 
 <script setup>

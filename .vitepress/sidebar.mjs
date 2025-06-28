@@ -64,5 +64,13 @@ export default generateSidebar([
         resolvePath: '/category/algorithm/',
         rootGroupText: '算法专栏',
         sortMenusByFrontmatterOrder: true
+    },
+    {
+        documentRootPath: '/src',
+        scanStartPath: 'category/resnav',
+        basePath: '/category/resnav/',
+        resolvePath: '/category/resnav/',
+        rootGroupText: '资源导航',
+        sortMenusByFrontmatterOrder: true
     }
 ])
