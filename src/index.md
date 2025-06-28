@@ -3,7 +3,7 @@
 layout: home
 
 hero:
-  name: "柚子成长站"
+  name: "柚子成长栈"
   text: "Front-end learning"
   tagline: 汇聚点滴，有所收获
   image:
