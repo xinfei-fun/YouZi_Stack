@@ -20,7 +20,6 @@ import vImageViewer from "vitepress-plugin-image-viewer/lib/vImageViewer.vue";
 import { useData, useRoute } from 'vitepress';
 import MermaidPreview from './globalcomponents/MermaidPreview.vue'
 import loadingPlugin from './directives/index.js'
-import { inject } from "@vercel/analytics"
 
 /** @type {import('vitepress').Theme} */
 export default {
@@ -61,9 +60,6 @@ export default {
         });
     },
     setup() {
-        // vercel analytics
-        inject();
-
         // Get frontmatter and route
         const { frontmatter } = useData();
         const route = useRoute();

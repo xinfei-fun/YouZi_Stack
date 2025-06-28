@@ -32,6 +32,17 @@ const config = defineConfig({
                 brotliSize: true
             }),
             groupIconVitePlugin(), //代码组图标
+            {
+                name: 'vercel-analytics',
+                configResolved(config) {
+                    // 仅在生产环境中注入 Vercel Analytics
+                    if (process.env.NODE_ENV === 'production') {
+                        import('@vercel/analytics').then(({ inject }) => {
+                            inject();
+                        });
+                    }
+                },
+            }
         ],
         build: {
             chunkSizeWarningLimit: 800
