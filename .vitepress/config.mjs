@@ -39,6 +39,7 @@ const config = defineConfig({
                     if (process.env.NODE_ENV === 'production') {
                         import('@vercel/analytics').then(({ inject }) => {
                             inject();
+                            console.log('Vercel Analytics 已成功注入', process.env.NODE_ENV);
                         });
                     }
                 },
