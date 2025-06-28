@@ -8,7 +8,7 @@
                 <span class="fn">{{ fileName || '未选择文件' }}</span>
             </div>
 
-            <div class="file-info" v-if="fileName">
+            <div class="file-info">
                 <p>文件大小: {{ formatFileSize(fileSize) }}</p>
                 <p>
                     切片大小:
@@ -18,12 +18,11 @@
                 <p>切片数量: {{ totalChunks }}</p>
             </div>
 
-            <button v-if="fileName && !isProcessing" @click="sliceAndSave" :disabled="!isApiSupported || isProcessing"
-                class="action-button">
+            <button @click="sliceAndSave" :disabled="!isApiSupported || isProcessing" class="action-button">
                 切片并保存到磁盘
             </button>
 
-            <div class="progress-container" v-if="isProcessing">
+            <div class="progress-container">
                 <div class="progress-bar-wrapper">
                     <div class="progress-bar" :style="{ width: `${progress}%` }"></div>
                 </div>
