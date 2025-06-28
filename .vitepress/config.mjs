@@ -35,7 +35,11 @@ const config = defineConfig({
         ],
         build: {
             chunkSizeWarningLimit: 800
-        }
+        },
+        esbuild: {
+            pure: ['console.log'],
+            drop: ['debugger'],
+        },
     },
     head: [
         ['link', { rel: 'icon', href: '/favicon.ico' }],
